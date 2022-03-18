@@ -1,9 +1,29 @@
+import 'package:apptravel/pages/get_started_screen.dart';
 import 'package:apptravel/style_theme.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+// asnyc splash screen
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToStarted();
+  }
+
+  _navigateToStarted() async {
+    await Future.delayed(const Duration(seconds: 3), () {});
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => const StartedScreen()));
+  }
+
+//
   @override
   Widget build(BuildContext context) {
     return Scaffold(
